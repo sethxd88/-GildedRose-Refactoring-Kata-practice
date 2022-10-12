@@ -9,8 +9,8 @@ class GildedRose
       case item.name
       when "Aged Brie"
         item.sell_in -= 1
-        item.quality += (item.quality < 50 && item.sell_in < 0) ? 2 : 1
-        item.quality = [50, item.quality].min
+        item.quality += (item.sell_in < 0 && item.quality < 50) ? 2 : 1
+        item.quality = [item.quality, 50].min
       when "Backstage passes to a TAFKAL80ETC concert"
         case item.sell_in
         when 11..49
